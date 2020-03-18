@@ -14,7 +14,8 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        $people = Person::latest()->paginate(5);
+        return view('people.index', compact('people'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +25,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('people.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:people|max:191',
+        ]);
+
+        Person::create($request->all());
+
+        return redirect()->route('people.index')->with('success', 'Cadastro criado com sucesso.');
     }
 
     /**
@@ -46,7 +53,7 @@ class PersonController extends Controller
      */
     public function show(Person $person)
     {
-        //
+        return view('people.show', compact('person'));
     }
 
     /**
@@ -57,7 +64,7 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        //
+        return view('people.edit', compact('person'));
     }
 
     /**
@@ -69,7 +76,13 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $person->update($request->all());
+
+        return redirect()->route('people.index')->with('success', 'Cadastro atualilzado com sucesso!');
     }
 
     /**
@@ -80,6 +93,8 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        //
+        $person->delete();
+
+        return redirect()->route('people.index')->with('success', 'Cadastro excluido com sucesso!');
     }
 }
