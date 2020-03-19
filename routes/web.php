@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::resource('people','PersonController');
 
+Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+
