@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use File;
 
 class RecognizeController extends Controller
 {
@@ -14,5 +15,10 @@ class RecognizeController extends Controller
     public function show()
     {
         return view('app');
+    }
+
+    public function model($model)
+    {
+        return File::get(public_path('models/' . $model));
     }
 }
