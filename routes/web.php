@@ -21,3 +21,5 @@ Route::resource('people','PersonController');
 
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
 
+Route::any('/recognize', 'RecognizeController@show');
+
