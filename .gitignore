@@ -3,6 +3,7 @@
 /public/storage
 /public/assets/
 /resources/views/app.blade.php
+/resources/recognize/app/package-lock.json
 /storage/*.key
 /vendor
 .env
