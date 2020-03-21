@@ -6,7 +6,8 @@
         <input type="file" style="display: none" ref="file" @change="onChangeFileUpload($event)" />
         <b-button variant="primary" @click="$refs.file.click()">Upload Images</b-button>
       </b-button-toolbar>      <img ref="image" :src="form.image" class="photo float-left" />
-    </div>    <div v-if="loaded">
+    </div>
+    <div v-if="loaded">
       <b-card v-for="(img, index) in images" :key="img.id">
         <div class="row">
           <div class="col-md-6">
@@ -77,13 +78,15 @@
       async deleteOneImage(id) {
         await this.deleteImage(id)
         this.getAllImages()
-      },    async getAllImages() {
+      },
+      async getAllImages() {
         const { data } = await this.getImages()
         this.$store.commit("setImages", data)
         if (this.$refs.file) {
           this.$refs.file.value = ""
         }
-      },    onChangeFileUpload($event) {
+      },
+      onChangeFileUpload($event) {
         const file = $event.target.files[0]
         const reader = new FileReader()
         reader.onload = async () => {
@@ -94,7 +97,8 @@
           this.form.image = ""
         }
         reader.readAsDataURL(file)
-      },    async detectFace(index) {
+      },
+      async detectFace(index) {
         const input = this.$refs[`photo-${index}`][0]      
         const options = new faceapi.TinyFaceDetectorOptions({
           inputSize: 128,
