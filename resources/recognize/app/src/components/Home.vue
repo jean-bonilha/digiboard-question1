@@ -47,8 +47,7 @@
 <script>
   import { requestsMixin } from "@/mixins/requestsMixin"
   import * as faceapi from "face-api.js"
-  const axios = require("axios")
-  const WEIGHTS_URL = "http://localhost:8082/weights"
+  const WEIGHTS_URL = "http://localhost/weights"
   export default {
     name: "home",
     mixins: [requestsMixin],
@@ -96,7 +95,8 @@
         }
         reader.readAsDataURL(file)
       },    async detectFace(index) {
-        const input = this.$refs[`photo-${index}`][0]      const options = new faceapi.TinyFaceDetectorOptions({
+        const input = this.$refs[`photo-${index}`][0]      
+        const options = new faceapi.TinyFaceDetectorOptions({
           inputSize: 128,
           scoreThreshold: 0.3
         })
