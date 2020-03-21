@@ -1,5 +1,6 @@
 const APIURL = "http://localhost"
-const axios = require("axios")export const requestsMixin = {
+const axios = require("axios")
+export const requestsMixin = {
   methods: {
     getImages() {
       return axios.get(`${APIURL}/images`)
