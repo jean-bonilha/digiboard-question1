@@ -23,5 +23,7 @@ Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('imag
 
 Route::get('/recognize', 'RecognizeController@show');
 
-Route::get('/model/{model}', 'RecognizeController@model');
+Route::get('/models/{model}', 'RecognizeController@model');
+
+Route::get('/weights/{weight}', 'RecognizeController@weight');
 

@@ -21,4 +21,9 @@ class RecognizeController extends Controller
     {
         return File::get(public_path('models/' . $model));
     }
+
+    public function weight($weight)
+    {
+        return File::get(public_path('weights/' . $weight));
+    }
 }
