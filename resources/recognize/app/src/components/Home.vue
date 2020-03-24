@@ -48,7 +48,7 @@
 <script>
   import { requestsMixin } from "@/mixins/requestsMixin"
   import * as faceapi from "face-api.js"
-  const WEIGHTS_URL = "http://localhost/weights"
+  const WEIGHTS_URL = "http://localhost/api/weights"
   export default {
     name: "home",
     mixins: [requestsMixin],

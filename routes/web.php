@@ -25,5 +25,3 @@ Route::get('/recognize', 'RecognizeController@show');
 
 Route::get('/models/{model}', 'RecognizeController@model');
 
-Route::get('/weights/{weight}', 'RecognizeController@weight');
-
