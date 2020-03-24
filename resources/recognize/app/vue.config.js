@@ -1,8 +1,4 @@
 module.exports = {
-  devServer: {
-    proxy: 'http://laravel.test'
-  },
-
   // output built static files to Laravel's public dir.
   // note the "build" script in package.json needs to be modified as well.
   outputDir: '../../../public/assets/app',
