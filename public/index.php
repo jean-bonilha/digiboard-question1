@@ -1,9 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: Application/json');
-header('Access-Control-Allow-Headers:  Content-Type, Origin');
-
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
