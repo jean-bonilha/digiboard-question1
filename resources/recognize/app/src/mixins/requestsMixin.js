@@ -1,4 +1,4 @@
-const APIURL = "http://localhost"
+const APIURL = "http://localhost/api"
 const axios = require("axios")
 export const requestsMixin = {
   methods: {
