@@ -43,22 +43,9 @@ Aplicativo para armazenamento de imagens e reconhecimento facial
  Rodar Migrations junto com as Seeders
 
  ```shell
- $ php artisan migrate:fresh --seed
- ```
-
- Entre na pasta do projeto SPA dentro da instalação
-
- ```shell
+ $ php artisan migrate --seed
  $ cd resources/recognize/app
- ```
- Faça a instalação das dependências
-
- ```shell
  $ npm install
- ```
- Depois rode o comando para subir o ambiente de desenvolvimento
-
- ```shell
  $ npm run serve
  ```
  ---
