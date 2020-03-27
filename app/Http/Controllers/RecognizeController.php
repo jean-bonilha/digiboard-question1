@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use File;
+use App\Photo;
+use Illuminate\Http\Request;
 
 class RecognizeController extends Controller
 {
@@ -25,5 +26,10 @@ class RecognizeController extends Controller
     public function weight($weight)
     {
         return File::get(public_path('weights/' . $weight));
+    }
+
+    public function images()
+    {
+        return Photo::all();
     }
 }
