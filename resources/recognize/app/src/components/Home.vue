@@ -36,7 +36,8 @@
             </b-list-group>
           </div>
         </div>
-        <br />        <b-button variant="primary" @click="detectFace(index)">Detect Face</b-button>        <b-button variant="danger" @click="deleteOneImage(img.id)">Delete</b-button>
+        <br />
+        <b-button variant="primary" @click="detectFace(index)">Detect Face</b-button>
       </b-card>
     </div>
     <div v-else>
@@ -75,28 +76,12 @@
       }
     },
     methods: {
-      async deleteOneImage(id) {
-        await this.deleteImage(id)
-        this.getAllImages()
-      },
       async getAllImages() {
         const { data } = await this.getImages()
         this.$store.commit("setImages", data)
         if (this.$refs.file) {
           this.$refs.file.value = ""
         }
-      },
-      onChangeFileUpload($event) {
-        const file = $event.target.files[0]
-        const reader = new FileReader()
-        reader.onload = async () => {
-          this.$refs.image.src = reader.result
-          this.form.image = reader.result
-          await this.addImage(this.form)
-          this.getAllImages()
-          this.form.image = ""
-        }
-        reader.readAsDataURL(file)
       },
       async detectFace(index) {
         const input = this.$refs[`photo-${index}`][0]      
@@ -111,7 +96,6 @@
           .withAgeAndGender()
           .withFaceDescriptors()
         this.images[index].detections = detections
-        await this.editImage(this.images[index])
         this.getAllImages()
       }
     }
