@@ -31,6 +31,7 @@ Aplicativo para armazenamento de imagens e reconhecimento facial
  $ composer install
  $ cp .env.example .env
  $ php artisan key:generate
+ $ php artisan migrate
  $ cd resources/recognize/app
  $ npm install
  $ npm run build
@@ -39,12 +40,17 @@ Aplicativo para armazenamento de imagens e reconhecimento facial
 
  ## Rodar ambiente de desenvolvimento
 
+ Rodar Migrations junto com as Seeders
+
+ ```shell
+ $ php artisan migrate:fresh --seed
+ ```
+
  Entre na pasta do projeto SPA dentro da instalação
 
  ```shell
  $ cd resources/recognize/app
  ```
- 
  Faça a instalação das dependências
 
  ```shell
