@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/weights/{weight}', 'RecognizeController@weight');
 
+Route::get('/models/{model}', 'RecognizeController@model');
+
+Route::get('/images', 'RecognizeController@images');
+

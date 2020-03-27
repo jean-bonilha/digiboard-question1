@@ -23,5 +23,3 @@ Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('imag
 
 Route::get('/recognize', 'RecognizeController@show');
 
-Route::get('/models/{model}', 'RecognizeController@model');
-
