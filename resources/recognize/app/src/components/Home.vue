@@ -1,12 +1,6 @@
 <template>
   <div class="page">
-    <h1 class="text-center">Images</h1>
-    <div class="clearfix">
-      <b-button-toolbar class="button-toolbar float-left">
-        <input type="file" style="display: none" ref="file" @change="onChangeFileUpload($event)" />
-        <b-button variant="primary" @click="$refs.file.click()">Upload Images</b-button>
-      </b-button-toolbar>      <img ref="image" :src="form.image" class="photo float-left" />
-    </div>
+    <h1 class="text-center">Banco de imagens</h1>
     <div v-if="loaded">
       <b-card v-for="(img, index) in images" :key="img.id">
         <div class="row">
