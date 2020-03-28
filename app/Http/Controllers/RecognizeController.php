@@ -30,6 +30,6 @@ class RecognizeController extends Controller
 
     public function images()
     {
-        return Photo::all();
+        return Photo::with('person')->get();
     }
 }

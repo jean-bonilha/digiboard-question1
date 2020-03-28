@@ -10,4 +10,9 @@ class Photo extends Model
         'person_id',
         'path_storage',
     ];
+
+    public function person()
+    {
+        return $this->belongsTo('App\Person');
+    }
 }
