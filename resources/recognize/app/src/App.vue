@@ -6,6 +6,9 @@
         <b-navbar-nav>
           <b-nav-item :to="{ name: 'images' }" :active="path  == '/images'">Banco de imagens</b-nav-item>
         </b-navbar-nav>
+        <b-navbar-nav>
+          <b-nav-item :to="{ name: 'train' }" :active="path  == '/train'">Treinamento</b-nav-item>
+        </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     <router-view />
