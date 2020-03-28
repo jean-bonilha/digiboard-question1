@@ -30,8 +30,6 @@
             </b-list-group>
           </div>
         </div>
-        <br />
-        <b-button variant="primary" @click="detectFace(index)">Detect Face</b-button>
       </b-card>
     </div>
     <div v-else>
