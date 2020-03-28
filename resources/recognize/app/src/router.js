@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Home from "./components/Home.vue"
+import Images from "./components/Images.vue"
 import Train from "./components/Train.vue"
 
 Vue.use(Router)
@@ -11,7 +11,7 @@ export default new Router({
         {
             path: "/images",
             name: "images",
-            component: Home
+            component: Images
         },
         {
             path: "/train",
