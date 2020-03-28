@@ -4,30 +4,12 @@
     <div v-if="loaded">
       <b-card v-for="(img, index) in images" :key="img.id">
         <div class="row">
-          <div class="col-md-6">
-            <img :src="img.image" img-alt="Image" class="photo" :ref="`photo-${index}`" />
+          <div class="col-md-2">
+            <img :src="img.path_storage" img-alt="Image" class="photo" :ref="`photo-${index}`" />
           </div>
-          <div class="col-md-6">
-            <h3>Faces</h3>
-            <b-list-group>
-              <b-list-group-item v-for="(d, i) of img.detections" :key="i">
-                <h4>Face {{i + 1}}</h4>
-                <ul class="detection">
-                  <li>Age: {{d.age.toFixed(0)}}</li>
-                  <li>Gender: {{d.gender}}</li>
-                  <li>Gender Probability: {{(d.genderProbability*100).toFixed(2)}}%</li>
-                  <li>
-                    Expressions:
-                    <ul>
-                      <li
-                        v-for="key of Object.keys(d.expressions)"
-                        :key="key"
-                        >{{key}}: {{(d.expressions[key]*100).toFixed(2)}}%</li>
-                    </ul>
-                  </li>
-                </ul>
-              </b-list-group-item>
-            </b-list-group>
+          <div class="col-md-10">
+            <h1>{{ img.person.name }}</h1>
+            <p class="title">{{ img.person.created_at | formatDate }}</p>
           </div>
         </div>
       </b-card>
