@@ -8,8 +8,8 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: "/home",
-            name: "home",
+            path: "/images",
+            name: "images",
             component: Home
         }
     ]
