@@ -17,6 +17,12 @@
                 {{ $person->name }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Matricula:</strong>
+                {{ $person->registration }}
+            </div>
+        </div>
     </div>
     <h4 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria de imagens</h4>
     <div class="panel panel-primary">

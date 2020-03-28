@@ -34,6 +34,7 @@ class PersonSeeder extends Seeder
             $id = $i + 1;
             Person::create([
                 'name' => $examplePeople[$i],
+                'registration' => 'D/AM-000' . $id,
             ]);
         }
 

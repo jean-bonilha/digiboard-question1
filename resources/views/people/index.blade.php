@@ -18,13 +18,15 @@
     <table class="table table-bordered">
         <tr>
             <th width="4%">ID</th>
-            <th width="70%">Nome</th>
+            <th width="50%">Nome</th>
+            <th width="20%">Matricula</th>
             <th>Acao</th>
         </tr>
         @foreach ($people as $product)
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
+                <td>{{ $product->registration }}</td>
                 <td>
                     <form action="{{ route('people.destroy',$product->id) }}" method="POST">
                         <a class="btn btn-info" href="{{ route('people.show',$product->id) }}">Fotos</a>

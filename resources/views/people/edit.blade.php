@@ -30,6 +30,12 @@
                     <input type="text" name="name" value="{{ $person->name }}" class="form-control" placeholder="Nome">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Matricula:</strong>
+                    <input type="text" name="registration" value="{{ $person->registration }}" class="form-control" placeholder="Matricula">
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
