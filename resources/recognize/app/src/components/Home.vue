@@ -5,7 +5,7 @@
       <b-card v-for="(img, index) in images" :key="img.id">
         <div class="row">
           <div class="col-md-2">
-            <img :src="img.path_storage" img-alt="Image" class="photo" :ref="`photo-${index}`" />
+            <img :src="pathImage(img.path_storage)" img-alt="Image" class="photo" :ref="`photo-${index}`" />
           </div>
           <div class="col-md-10">
             <h1>{{ img.person.name }}</h1>
@@ -23,7 +23,11 @@
 <script>
 import { requestsMixin } from "@/mixins/requestsMixin"
 import * as faceapi from "face-api.js"
-const WEIGHTS_URL = "http://localhost/api/weights"
+
+const BASE_URL = "http://localhost"
+const API_URL = `${BASE_URL}/api`
+const WEIGHTS_URL = `${API_URL}/weights`
+
 export default {
   name: "home",
   mixins: [requestsMixin],
@@ -50,6 +54,9 @@ export default {
     }
   },
   methods: {
+    pathImage(parcialPath) {
+      return `${BASE_URL}/${parcialPath}`
+    },
     async getAllImages() {
       const { data } = await this.getImages()
       this.$store.commit("setImages", data)
@@ -57,6 +64,7 @@ export default {
         this.$refs.file.value = ""
       }
     },
+
   }
 }
 </script>
