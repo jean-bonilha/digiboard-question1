@@ -8,6 +8,7 @@ class Photo extends Model
 {
     protected $fillable = [
         'person_id',
+        'group_id',
         'path_storage',
     ];
 

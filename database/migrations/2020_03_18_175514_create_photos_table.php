@@ -16,6 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('person_id');
+            $table->integer('group_id');
             $table->string('path_storage');
             $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
             $table->timestamps();

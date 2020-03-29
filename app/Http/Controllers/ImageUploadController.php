@@ -8,6 +8,7 @@ use App\Rules\Photo2x4Dimension;
 use App\Photo;
 use Image;
 use File;
+use DB;
 
 class ImageUploadController extends Controller
 {
@@ -30,6 +31,12 @@ class ImageUploadController extends Controller
 
         $images = $request->file('images');
 
+        $lastPhoto = DB::table('photos')->orderBy('group_id', 'desc')->first();
+
+        $groupPhoto = ($lastPhoto) ? (int) $lastPhoto->group_id : 0;
+
+        $groupPhoto++;
+
         foreach ($images as $key => $image) {
             $time = time() + $key;
 
@@ -43,6 +50,7 @@ class ImageUploadController extends Controller
 
             Photo::create([
                 'person_id' => $idPerson,
+                'group_id' => $groupPhoto,
                 'path_storage' => $pathStorage . '/' . $imageName,
             ]);
         }
