@@ -31,9 +31,12 @@ class ImageUploadController extends Controller
 
         $images = $request->file('images');
 
-        $lastPhoto = DB::table('photos')->orderBy('group_id', 'desc')->first();
+        $lastPhoto = DB::select(
+            'select group_id from photos where person_id = :person_id order by group_id desc limit 1',
+            ['person_id' => $idPerson],
+        );
 
-        $groupPhoto = ($lastPhoto) ? (int) $lastPhoto->group_id : 0;
+        $groupPhoto = ($lastPhoto) ? (int) $lastPhoto[0]->group_id : 0;
 
         $groupPhoto++;
 
