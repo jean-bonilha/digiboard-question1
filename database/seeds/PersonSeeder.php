@@ -13,14 +13,9 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        $count = (int)$this->command->ask('How to people do you need? (default 5)', 5);
+        $count = 5;
 
-        if ($count < 5) {
-            $count = 5;
-            $this->command->info("The minor value for number of person need be {$count}.");
-        };
-
-        $this->command->info("Creating {$count} example people.");
+        $this->command->info("Creating {$count} people to example");
 
         $examplePeople = [
             'Linus Torvalds',
@@ -30,7 +25,7 @@ class PersonSeeder extends Seeder
             'Elon Musk',
         ];
 
-        for ($i=0; $i <= 4; $i++) {
+        for ($i=0; $i < $count; $i++) {
             $id = $i + 1;
             Person::create([
                 'name' => $examplePeople[$i],
@@ -38,6 +33,6 @@ class PersonSeeder extends Seeder
             ]);
         }
 
-        $this->command->info('People example created!');
+        $this->command->info('People created for example!');
     }
 }
