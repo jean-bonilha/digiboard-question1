@@ -15,7 +15,10 @@
       </b-card>
     </div>
     <div v-else>
-      <p>Loading image data...</p>
+      <p>Carregando dados das imagens...</p>
+    </div>
+    <div v-if="images.length === 0 && loaded === true">
+      <p>Nenhuma imagem foi retornada da consulta!</p>
     </div>
   </div>
 </template>
