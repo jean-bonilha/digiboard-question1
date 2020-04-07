@@ -4,9 +4,6 @@
       <b-navbar-brand :to="{ path: '/' }">Home</b-navbar-brand>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item :to="{ name: 'people-images' }" :active="path  == '/people-images'">Banco de imagens</b-nav-item>
-        </b-navbar-nav>
-        <b-navbar-nav>
           <b-nav-item :to="{ name: 'train' }" :active="path  == '/train'">Treinamento</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
