@@ -7,11 +7,11 @@ export default
 
 new Vuex.Store({
     state: {
-        images: []
+        peopleImages: []
     },
     mutations: {
         setImages(state, payload) {
-            state.images = payload
+            state.peopleImages = payload
         }
     },
     actions: {}

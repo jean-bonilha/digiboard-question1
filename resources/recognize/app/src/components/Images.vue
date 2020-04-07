@@ -2,14 +2,14 @@
   <div class="page">
     <h1 class="text-center">Banco de imagens</h1>
     <div v-if="loaded">
-      <b-card v-for="(img, index) in images" :key="img.id">
-        <div class="row">
+      <b-card v-for="(person, index) in people" :key="person.id">
+        <div class="row text-center text-lg-left">
           <div class="col-md-2">
-            <img :src="pathImage(img.path_storage)" img-alt="Image" class="photo" :ref="`photo-${index}`" />
+            <h4>{{ person.name }}</h4>
+            <p class="sub-title">Criado em: {{ person.created_at | formatDate }}</p>
           </div>
-          <div class="col-md-10">
-            <h1>{{ img.person.name }}</h1>
-            <p class="title">{{ img.person.created_at | formatDate }}</p>
+          <div class="col-md-2" v-for="photo in person.photos" :key="photo.id">
+            <img :src="pathImage(photo.path_storage)" img-alt="Image" class="img-fluid img-thumbnail" :ref="`photo-${index}`" />
           </div>
         </div>
       </b-card>
@@ -17,7 +17,7 @@
     <div v-else>
       <p>Carregando dados das imagens...</p>
     </div>
-    <div v-if="images.length === 0 && loaded === true">
+    <div v-if="people.length === 0 && loaded === true">
       <p>Nenhuma imagem foi retornada da consulta!</p>
     </div>
   </div>
@@ -35,8 +35,8 @@ export default {
   name: "home",
   mixins: [requestsMixin],
   computed: {
-    images() {
-      return this.$store.state.images
+    people() {
+      return this.$store.state.peopleImages
     }
   },
   async beforeMount() {
@@ -73,6 +73,9 @@ export default {
 </script>
 
 <style>
+.sub-title {
+  color: blue;
+}
 .photo {
   max-width: 200px;
   margin-bottom: 10px;

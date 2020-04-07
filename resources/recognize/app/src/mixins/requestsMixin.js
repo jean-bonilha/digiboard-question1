@@ -3,7 +3,7 @@ const axios = require("axios")
 export const requestsMixin = {
   methods: {
     getImages() {
-      return axios.get(`${APIURL}/images`)
+      return axios.get(`${APIURL}/people-images`)
     },
   }
 }

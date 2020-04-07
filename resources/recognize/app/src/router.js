@@ -9,8 +9,8 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: "/images",
-            name: "images",
+            path: "/people-images",
+            name: "people-images",
             component: Images
         },
         {

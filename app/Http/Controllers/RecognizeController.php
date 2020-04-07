@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use File;
-use App\Photo;
+use App\Person;
 use Illuminate\Http\Request;
 
 class RecognizeController extends Controller
@@ -30,6 +30,6 @@ class RecognizeController extends Controller
 
     public function images()
     {
-        return Photo::with('person')->get();
+        return Person::with('photos')->get();
     }
 }
